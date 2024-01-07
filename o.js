@@ -14,7 +14,7 @@
 		// 	}
 		// }); 
 
-        Lampa.Notify.show(card);
+        Lampa.Noty.show(card);
     }
 
 
