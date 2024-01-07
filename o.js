@@ -50,19 +50,24 @@
 			component: 'trailer_settings',
 			param: {
 				name: 'youtube_token',
+				values: '',
+				default: '',
 				type: 'input',
 			},
 			field: {
 				name: 'Youtube token'
 			},
-			// onRender: function (item) {
-			// 	item.on('hover:enter', function () {
-			// 		Lampa.Settings.create('add_interface_plugin');
-			// 		Lampa.Controller.enabled().controller.back = function () {
-			// 			Lampa.Settings.create('add_plugin');
-			// 		}
-			// 	});
-			// }
+			onRender: function (item) {
+				item.on('hover:enter', function () {
+					console.log(item);
+					Lampa.Noty.show(item);
+					// Lampa.Storage.
+					// Lampa.Settings.create('add_interface_plugin');
+					// Lampa.Controller.enabled().controller.back = function () {
+						// Lampa.Settings.create('add_plugin');
+					// }
+				});
+			}
 		});
 	}
 
