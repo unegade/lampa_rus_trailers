@@ -16,6 +16,7 @@
 		const searchPostfix = Lampa.Storage.get('youtube_postfix', '');
 		if (token.length === 0) {
 			Lampa.Noty.show("Необходимо добавить API ключ в настройках");
+			return;
 		}
 		const searchName = filmName + ' ' + searchPostfix;
 		$.get('https://www.googleapis.com/youtube/v3/search?key=' + token + '&q=' + searchName + '&part=snippet&maxResults=10', function (data) {
