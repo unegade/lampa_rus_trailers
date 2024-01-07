@@ -1,28 +1,28 @@
 (function () {
 	'use strict';
-	// var num;
-	// function otzyv_kp_imdb(kpid,imdbid,num) {
-	// 			if (kpid == 'WERWER') {
-	// 		$.get('http://skaztv.online/otzyv.php?kp='+kpid+'&tmdb='+imdbid+'&num='+num, function (data) {
-	// 		var modal = $('<div><div class="broadcast__text" style="text-align:left"><div class="otzyv">'+data+'</div></div></div>');
-	// 		var enabled = Lampa.Controller.enabled().name;
-	// 		Lampa.Modal.open({
-    //             title: "",
-    //             html: modal,
-    //             size: "large",
-    //             mask: !0,
-    //             onBack: function() {
-    //                 Lampa.Modal.close(), Lampa.Controller.toggle(enabled)
-    //             },
-    //             onSelect: function() {}
-    //         });
-	// 		});
+	var num;
+	function otzyv_kp_imdb(kpid,imdbid,num) {
+				if (kpid == 'WERWER') {
+			$.get('http://skaztv.online/otzyv.php?kp='+kpid+'&tmdb='+imdbid+'&num='+num, function (data) {
+			var modal = $('<div><div class="broadcast__text" style="text-align:left"><div class="otzyv">'+data+'</div></div></div>');
+			var enabled = Lampa.Controller.enabled().name;
+			Lampa.Modal.open({
+                title: "",
+                html: modal,
+                size: "large",
+                mask: !0,
+                onBack: function() {
+                    Lampa.Modal.close(), Lampa.Controller.toggle(enabled)
+                },
+                onSelect: function() {}
+            });
+			});
 			
-	// 	}
-	// }
-	// $('.otzyvb').on('hover:enter', function () {
-	// 	console.log(123);
-	// });
+		}
+	}
+	$('.otzyvb').on('hover:enter', function () {
+		console.log(123);
+	});
 	
 	function startPlugin() {
 		window.otzyv_plugin = true;
