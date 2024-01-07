@@ -13,9 +13,11 @@
 		// 		Lampa.Controller.toggle('content');
 		// 	}
 		// }); 
+		var Q = card;
+		var name = $('.full-start-new__title', card).text();
+		console.log(b);
 		console.log(card);
-        Lampa.Noty.show(card);
-		Q = card;
+        Lampa.Noty.show(name);
     }
 
 
