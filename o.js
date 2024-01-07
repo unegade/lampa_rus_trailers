@@ -40,7 +40,7 @@
 			});
 		}).fail(function(e) {
 			console.log(e)
-			Lampa.Noty.show('Не удалось выполнить запрос\n' + e.responseJSON); // or whatever
+			Lampa.Noty.show('Не удалось выполнить запрос\n' + JSON.stringify(e.responseJSON)); // or whatever
 		});
 		// console.log(filmName);
 		// Lampa.Noty.show(filmName);
