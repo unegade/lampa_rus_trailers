@@ -13,10 +13,11 @@
 
 	function find_trailers(filmName) {
 		const token = Lampa.Storage.get('youtube_token', '');
+		const searchPostfix = Lampa.Storage.get('youtube_postfix', '');
 		if (token.length === 0) {
 			Lampa.Noty.show("Необходимо добавить API ключ в настройках");
-		}
-		const searchName = filmName + ' русский трейлер';
+		}youtube_postfix
+		const searchName = filmName + ' ' + searchPostfix;
 		$.get('https://www.googleapis.com/youtube/v3/search?key=' + token + '&q=' + searchName + '&part=snippet&maxResults=10', function (data) {
 			data['items'].map((item) => {
 				console.log(item);
@@ -63,17 +64,40 @@
 			field: {
 				name: 'Youtube token'
 			},
-			onRender: function (item) {
-				item.on('hover:enter', function () {
-					console.log(item);
-					Lampa.Noty.show(item);
+			// onRender: function (item) {
+				// item.on('hover:enter', function () {
+					// console.log(item);
+					// Lampa.Noty.show(item);
 					// Lampa.Storage.
 					// Lampa.Settings.create('add_interface_plugin');
 					// Lampa.Controller.enabled().controller.back = function () {
 						// Lampa.Settings.create('add_plugin');
 					// }
-				});
-			}
+				// });
+			// }
+		});
+		Lampa.SettingsApi.addParam({
+			component: 'trailer_settings',
+			param: {
+				name: 'youtube_postfix',
+				values: '',
+				default: 'русский трейлер',
+				type: 'input',
+			},
+			field: {
+				name: 'Постфикс поискового запроса'
+			},
+			// onRender: function (item) {
+				// item.on('hover:enter', function () {
+					// console.log(item);
+					// Lampa.Noty.show(item);
+					// Lampa.Storage.
+					// Lampa.Settings.create('add_interface_plugin');
+					// Lampa.Controller.enabled().controller.back = function () {
+						// Lampa.Settings.create('add_plugin');
+					// }
+				// });
+			// }
 		});
 	}
 
