@@ -13,8 +13,9 @@
 		// 		Lampa.Controller.toggle('content');
 		// 	}
 		// }); 
-
+		console.log(card);
         Lampa.Noty.show(card);
+		Q = card;
     }
 
 
