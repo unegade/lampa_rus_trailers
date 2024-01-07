@@ -2,6 +2,12 @@
     'use strict';
 
     function render_trailers(filmName) {
+		var token = 'AIzaSyDIWii53ZrXWVTEMOWf6lX2Ix347eFPTww';
+		$.get('https://www.googleapis.com/youtube/v3/search?key='+token+'&q='+filmName+'&part=snippet&maxResults=10', function (data) {
+			data['items'].map((item) => {
+				console.log(item);
+			});
+			});
 		// Lampa.Select.show({
 		// 	title: 'Плейлист',
 		// 	items: [{title: "<div><img src='https://i.ytimg.com/vi/Hi8wbejJ1fA/mqdefault.jpg' />qew</div>", id: "Hi8wbejJ1fA", html: "<div>https://i.ytimg.com/vi/Hi8wbejJ1fA/mqdefault.jpg</div>"}],
