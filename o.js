@@ -4,14 +4,19 @@
 	function render_trailers(filmName) {
 		// items: [{ title: "<div><img src='https://i.ytimg.com/vi/Hi8wbejJ1fA/mqdefault.jpg' />qew</div>", id: "Hi8wbejJ1fA", html: "<div>https://i.ytimg.com/vi/Hi8wbejJ1fA/mqdefault.jpg</div>" }],
 		var token = 'AIzaSyDIWii53ZrXWVTEMOWf6lX2Ix347eFPTww';
+		var searchName = filmName + ' русский трейлер';
 		$.get('https://www.googleapis.com/youtube/v3/search?key=' + token + '&q=' + filmName + '&part=snippet&maxResults=10', function (data) {
 			data['items'].map((item) => {
 				console.log(item);
 			});
 			Lampa.Select.show({
-				title: 'Плейлист',
+				title: 'Трейлеры',
 				items: data['items'].map((item) => {
-					return {id: item['id'], title: item['snippet']['title']}
+					var id = item['id']['videoId'];
+					var title = item['snippet']['title'];
+					var image = item['snippet']['thumbnails']['medium'];
+					var html = '<div><img src="' + image + '/>'+ title + '</div>'
+					return {id: id, title: html}
 				}),
 				onSelect: function onSelect(a) {
 					Lampa.YouTube.play(a.id)
