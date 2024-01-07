@@ -14,8 +14,8 @@
 				items: data['items'].map((item) => {
 					var id = item['id']['videoId'];
 					var title = item['snippet']['title'];
-					var image = item['snippet']['thumbnails']['medium'];
-					var html = '<div><img src="' + image + '/>'+ title + '</div>'
+					var image = item['snippet']['thumbnails']['medium']['url'];
+					var html = '<div><img src="' + image + '"/>'+ title + '</div>'
 					return {id: id, title: html}
 				}),
 				onSelect: function onSelect(a) {
