@@ -12,11 +12,17 @@
 	}
 
 	function find_trailers(filmName) {
-		var token = 'AIzaSyDIWii53ZrXWVTEMOWf6lX2Ix347eFPTww';
-		var searchName = filmName + ' русский трейлер';
+		const token = Lampa.Storage.get('youtube_token', '');
+		if (token.length === 0) {
+			Lampa.Noty.show("Необходимо добавить API ключ в настройках");
+		}
+		const searchName = filmName + ' русский трейлер';
 		$.get('https://www.googleapis.com/youtube/v3/search?key=' + token + '&q=' + searchName + '&part=snippet&maxResults=10', function (data) {
 			data['items'].map((item) => {
 				console.log(item);
+			}).fail(function(e) {
+				console.log(e)
+				Lampa.Noty.show('woops'); // or whatever
 			});
 			Lampa.Select.show({
 				title: 'Трейлеры',
