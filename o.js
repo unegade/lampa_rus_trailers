@@ -15,8 +15,8 @@
 		// }); 
 		var Q = card;
 		var name = $('.full-start-new__title', card).text();
-		console.log(b);
 		console.log(card);
+		console.log(name);
         Lampa.Noty.show(name);
     }
 
