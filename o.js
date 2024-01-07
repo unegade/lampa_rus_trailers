@@ -20,9 +20,6 @@
 		$.get('https://www.googleapis.com/youtube/v3/search?key=' + token + '&q=' + searchName + '&part=snippet&maxResults=10', function (data) {
 			data['items'].map((item) => {
 				console.log(item);
-			}).fail(function(e) {
-				console.log(e)
-				Lampa.Noty.show('woops'); // or whatever
 			});
 			Lampa.Select.show({
 				title: 'Трейлеры',
@@ -41,6 +38,9 @@
 					Lampa.Controller.toggle('content');
 				}
 			});
+		}).fail(function(e) {
+			console.log(e)
+			Lampa.Noty.show('woops'); // or whatever
 		});
 		// console.log(filmName);
 		// Lampa.Noty.show(filmName);
