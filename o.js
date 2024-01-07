@@ -5,7 +5,7 @@
 		// items: [{ title: "<div><img src='https://i.ytimg.com/vi/Hi8wbejJ1fA/mqdefault.jpg' />qew</div>", id: "Hi8wbejJ1fA", html: "<div>https://i.ytimg.com/vi/Hi8wbejJ1fA/mqdefault.jpg</div>" }],
 		var token = 'AIzaSyDIWii53ZrXWVTEMOWf6lX2Ix347eFPTww';
 		var searchName = filmName + ' русский трейлер';
-		$.get('https://www.googleapis.com/youtube/v3/search?key=' + token + '&q=' + filmName + '&part=snippet&maxResults=10', function (data) {
+		$.get('https://www.googleapis.com/youtube/v3/search?key=' + token + '&q=' + searchName + '&part=snippet&maxResults=10', function (data) {
 			data['items'].map((item) => {
 				console.log(item);
 			});
